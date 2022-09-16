@@ -10,7 +10,7 @@ complaint = sqlalchemy.Table(
     sqlalchemy.Column("description", sqlalchemy.Text, nullable=False),
     sqlalchemy.Column("photo_url", sqlalchemy.String(255), nullable=False),
     sqlalchemy.Column("amount", sqlalchemy.Float, nullable=False),
-    sqlalchemy.Column("created_at", sqlalchemy.DateTime, server_default=sqlalchemy.func.utcnow()),
+    sqlalchemy.Column("created_at", sqlalchemy.DateTime, server_default=sqlalchemy.func.now()),
     sqlalchemy.Column("status", sqlalchemy.Enum(State), nullable=False, server_default=State.pending.name),
     sqlalchemy.Column("complainer_id", sqlalchemy.ForeignKey("users.id"), nullable=False)
 )
