@@ -1,0 +1,11 @@
+# Pycharm project files
+*.idea
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
