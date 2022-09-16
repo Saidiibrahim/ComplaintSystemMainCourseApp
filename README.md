@@ -1,5 +1,8 @@
 # ComplaintSystem App
 
+![Alt Text](https://media.giphy.com/media/Xw6yFn7frR3Y4/giphy.gif)
+
+
 ### This is the main app for the Udemy course on FastAPI
 
 ### Packages installed via command line:
@@ -36,3 +39,8 @@ Finally, don't forget to set the target_metadata = metadata (not None)
 
 
 alembic  revision --autogenerate -m "Initial" 
+
+
+## Mangers
+### Responsible for handling business logic
+#### pip install pyjwt 
