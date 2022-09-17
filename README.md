@@ -44,3 +44,4 @@ alembic  revision --autogenerate -m "Initial"
 ## Mangers
 ### Responsible for handling business logic
 #### pip install pyjwt 
+#### pip install passlib 
