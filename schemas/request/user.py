@@ -6,7 +6,7 @@ class UserBase(BaseModel):
     """
     Base class for all user models.
     """
-    email = str
+    email: str
 
 
 # A schema for register

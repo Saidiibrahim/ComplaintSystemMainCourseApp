@@ -34,7 +34,7 @@ class UserManager:
         if not user_do:
             raise HTTPException(400, "wrong email or password")  # Because we don't want to say we don't have this user
         # Or if the password is wrong
-        elif not pwd_context.verify(user_data["password"], user_data["password"]):
+        elif not pwd_context.verify(user_data["password"], user_do["password"]):
             # For security reasons, if password is wrong, we return the same message
             # This way we don't expose sensitive information.
             # If we say we don't have this user, that's not only informative to the user,

@@ -23,7 +23,7 @@ class AuthManager:
                 "sub": user["id"],  # sub means subject
                 "exp": datetime.utcnow() + timedelta(minutes=120)  # exp means expires
             }
-            return jwt.encode(payload, config("SECRET_KEY", algorithm="HS256"))
+            return jwt.encode(payload, config('SECRET_KEY'), algorithm='HS256')
         except Exception as ex:
             # Log the exception
             raise ex
