@@ -8,7 +8,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from starlette.requests import Request
 
 from db import database
-from models import user
+from models import user, RoleType
 
 
 class AuthManager:
@@ -52,4 +52,19 @@ class CustomHTTPBearer(HTTPBearer):
         # In the case the token is invalid
         except jwt.InvalidTokenError:
             raise HTTPException(401, "Token is invalid")
+
+
+def is_complainer(request):
+    if not request.state.user["role"] == RoleType.complainer:
+        raise HTTPException(403, "Forbidden")
+
+
+def is_approver(request):
+    if not request.state.user["role"] == RoleType.approver:
+        raise HTTPException(403, "Forbidden")
+
+
+def is_admin(request):
+    if not request.state.user["role"] == RoleType.admin:
+        raise HTTPException(403, "Forbidden")
 
