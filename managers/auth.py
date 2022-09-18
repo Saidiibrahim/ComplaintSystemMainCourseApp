@@ -43,7 +43,7 @@ class CustomHTTPBearer(HTTPBearer):
             payload = jwt.decode(res.credentials, config("SECRET_KEY"), algorithms=["HS256"])
             # Fetch the user from database
             user_data = await database.fetch_one(user.select().where(user.c.id == payload["sub"]))
-            # Bind this to the request so we have a global user for this response cycle
+            # Bind this to the request, so we have a global user for this response cycle
             request.state.user = user_data
             # return the user data
             return user_data
@@ -52,6 +52,10 @@ class CustomHTTPBearer(HTTPBearer):
         # In the case the token is invalid
         except jwt.InvalidTokenError:
             raise HTTPException(401, "Token is invalid")
+
+
+# Authentication schema
+oauth2_schema = CustomHTTPBearer()
 
 
 def is_complainer(request):
